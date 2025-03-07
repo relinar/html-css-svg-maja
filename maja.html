@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="et">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animeeritud SVG Maja</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Animeeritud SVG Maja</h1>
+
+  <div class="raam">
+    <svg width="1100px" height="1100px" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+      
+      <!-- Taeva gradient -->
+      <defs>
+        <linearGradient id="taevas" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#87CEEB" />
+          <stop offset="100%" stop-color="#B0E0E6" />
+        </linearGradient>
+        
+        <linearGradient id="muru" x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0%" stop-color="#228B22" />
+          <stop offset="100%" stop-color="#006400" />
+        </linearGradient>
+      </defs>
+
+      <!-- Taevas -->
+      <rect x="0" y="0" width="400" height="300" fill="url(#taevas)" />
+
+      <!-- Muru -->
+      <rect x="0" y="300" width="400" height="100" fill="url(#muru)" />
+
+      <!-- Päike (pöörlev) -->
+      <circle cx="350" cy="50" r="30" fill="yellow">
+        <animateTransform attributeName="transform" type="rotate" from="0 350 50" to="360 350 50" dur="10s" repeatCount="indefinite" />
+      </circle>
+
+      <!-- Pilved (liikuvad) -->
+      <g>
+        <circle cx="60" cy="50" r="15" fill="white" />
+        <circle cx="80" cy="50" r="20" fill="white" />
+        <circle cx="100" cy="50" r="15" fill="white" />
+        <animateTransform attributeName="transform" type="translate" from="-100 0" to="500 0" dur="20s" repeatCount="indefinite" />
+      </g>
+
+      <!-- Katus -->
+      <polygon points="130,250 200,180 270,250" fill="#434A5E" />
+
+      <!-- Sein -->
+      <rect x="140" y="250" width="120" height="100" fill="darkred" />
+
+      <!-- Aken -->
+      <rect x="155" y="270" width="30" height="30" fill="white" stroke="black" stroke-width="2" />
+
+      <!-- Aken sees -->
+      <rect x="160" y="275" width="20" height="20" fill="black" />
+
+      <!-- Uks -->
+      <rect x="210" y="270" width="30" height="80" fill="gray" stroke="white" stroke-width="2" />
+
+      <!-- Uksenupp (pulseeriv) -->
+      <circle cx="235" cy="310" r="3" fill="black">
+      </circle>
+
+      <!-- Liblika 1 liikumise tee (üle maja, vasakult paremale) -->
+      <path id="butterflyPath1" d="M -50 250 Q 200 50 450 250" fill="transparent" stroke="none"/>
+
+      <!-- Liblika 2 liikumise tee (madalamal, paremalt vasakule) -->
+      <path id="butterflyPath2" d="M 450 320 Q 200 350 -50 320" fill="transparent" stroke="none"/>
+
+      <!-- Esimene liblikas (üle maja) -->
+      <g>
+        <ellipse cx="0" cy="0" rx="5" ry="10" fill="orange" transform="rotate(30)" />
+        <ellipse cx="0" cy="0" rx="5" ry="10" fill="orange" transform="rotate(-30)" />
+        <circle cx="0" cy="0" r="3" fill="black" />
+        <line x1="-2" y1="-5" x2="-4" y2="-10" stroke="black" stroke-width="1"/>
+        <line x1="2" y1="-5" x2="4" y2="-10" stroke="black" stroke-width="1"/>
+        
+        <animateMotion repeatCount="indefinite" dur="10s">
+          <mpath href="#butterflyPath1"/>
+        </animateMotion>
+      </g>
+
+      <!-- Teine liblikas (madalam, vastassuunas) -->
+      <g>
+        <ellipse cx="0" cy="0" rx="5" ry="10" fill="blue" transform="rotate(30)" />
+        <ellipse cx="0" cy="0" rx="5" ry="10" fill="blue" transform="rotate(-30)" />
+        <circle cx="0" cy="0" r="3" fill="black" />
+        <line x1="-2" y1="-5" x2="-4" y2="-10" stroke="black" stroke-width="1"/>
+        <line x1="2" y1="-5" x2="4" y2="-10" stroke="black" stroke-width="1"/>
+        
+        <animateMotion repeatCount="indefinite" dur="12s">
+          <mpath href="#butterflyPath2"/>
+        </animateMotion>
+      </g>
+
+    </svg>
+  </div>
+</body>
+
+</html>
