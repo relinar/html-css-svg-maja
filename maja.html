@@ -17,8 +17,8 @@
       <!-- Taeva gradient -->
       <defs>
         <linearGradient id="taevas" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="#87CEEB" />
-          <stop offset="100%" stop-color="#B0E0E6" />
+          <stop offset="75%" stop-color="#87CEEB" /> <!-- Hele sinine -->
+          <stop offset="100%" stop-color="#B0E0E6" /> <!-- Taevasinine -->
         </linearGradient>
         
         <linearGradient id="muru" x1="0" y1="0" x2="0" y2="1">
@@ -27,23 +27,47 @@
         </linearGradient>
       </defs>
 
-      <!-- Taevas -->
+      <!-- Taevas (gradientiga) -->
       <rect x="0" y="0" width="400" height="300" fill="url(#taevas)" />
 
       <!-- Muru -->
       <rect x="0" y="300" width="400" height="100" fill="url(#muru)" />
 
-      <!-- Päike (pöörlev) -->
-      <circle cx="350" cy="50" r="30" fill="yellow">
-        <animateTransform attributeName="transform" type="rotate" from="0 350 50" to="360 350 50" dur="10s" repeatCount="indefinite" />
-      </circle>
-
+      <!-- Päike (pöörlev + triibud) -->
+      <g>
+        <!-- Päikese põhiring -->
+        <circle cx="350" cy="50" r="11" fill="yellow" />
+    
+        <!-- Päikesekiired -->
+        <g>
+          <line x1="350" y1="10" x2="350" y2="30" stroke="yellow" stroke-width="2" />
+          <line x1="380" y1="20" x2="365" y2="35" stroke="yellow" stroke-width="2" />
+          <line x1="390" y1="50" x2="370" y2="50" stroke="yellow" stroke-width="2" />
+          <line x1="380" y1="80" x2="365" y2="65" stroke="yellow" stroke-width="2" />
+          <line x1="350" y1="90" x2="350" y2="70" stroke="yellow" stroke-width="2" />
+          <line x1="320" y1="80" x2="335" y2="65" stroke="yellow" stroke-width="2" />
+          <line x1="310" y1="50" x2="330" y2="50" stroke="yellow" stroke-width="2" />
+          <line x1="320" y1="20" x2="335" y2="35" stroke="yellow" stroke-width="2" />
+        </g>
+    
+        <!-- Animaatsioon (pöörlemine) -->
+        <animateTransform
+          attributeName="transform"
+          begin="0s"
+          dur="20s"
+          type="rotate"
+          from="0 350 50"
+          to="360 350 50"
+          repeatCount="indefinite"
+        />
+      </g>
+    
       <!-- Pilved (liikuvad) -->
       <g>
         <circle cx="60" cy="50" r="15" fill="white" />
         <circle cx="80" cy="50" r="20" fill="white" />
         <circle cx="100" cy="50" r="15" fill="white" />
-        <animateTransform attributeName="transform" type="translate" from="-100 0" to="500 0" dur="20s" repeatCount="indefinite" />
+        <animateTransform attributeName="transform" type="translate" from="-100 0" to="500 0" dur="70s" repeatCount="indefinite" />
       </g>
 
       <!-- Katus -->
@@ -61,7 +85,7 @@
       <!-- Uks -->
       <rect x="210" y="270" width="30" height="80" fill="gray" stroke="white" stroke-width="2" />
 
-      <!-- Uksenupp (pulseeriv) -->
+      <!-- Uksenupp -->
       <circle cx="235" cy="310" r="3" fill="black">
       </circle>
 
@@ -79,7 +103,7 @@
         <line x1="-2" y1="-5" x2="-4" y2="-10" stroke="black" stroke-width="1"/>
         <line x1="2" y1="-5" x2="4" y2="-10" stroke="black" stroke-width="1"/>
         
-        <animateMotion repeatCount="indefinite" dur="10s">
+        <animateMotion repeatCount="indefinite" dur="19s">
           <mpath href="#butterflyPath1"/>
         </animateMotion>
       </g>
@@ -92,7 +116,7 @@
         <line x1="-2" y1="-5" x2="-4" y2="-10" stroke="black" stroke-width="1"/>
         <line x1="2" y1="-5" x2="4" y2="-10" stroke="black" stroke-width="1"/>
         
-        <animateMotion repeatCount="indefinite" dur="12s">
+        <animateMotion repeatCount="indefinite" dur="19s">
           <mpath href="#butterflyPath2"/>
         </animateMotion>
       </g>
